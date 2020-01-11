@@ -23,8 +23,6 @@ spec:
         # Isio required labels
         app: {{ .Values.service | quote }}
         version: {{ .Values.version | quote }}
-      annotations:
-        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       containers:
         - name: {{ .Values.service | quote }}
@@ -37,10 +35,3 @@ spec:
               protocol: TCP
 {{- end }}
 {{- if .Values.probes -}}{{- toYaml .Values.probes | nindent 10 -}}{{- end -}}
-          volumeMounts:
-            - name: {{ (print .Values.service "-config") | quote }}
-              mountPath: {{ .Values.configMap.mountPath | quote }}
-      volumes:
-        - name: {{ (print .Values.service "-config") | quote }}
-          configMap:
-            name: {{ .Values.service | quote }}
