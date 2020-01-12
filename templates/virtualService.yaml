@@ -24,6 +24,8 @@ spec:
 {{- range .Values.ingressGateway.matchPrefix }}
       - uri:
           prefix: {{ . | quote }}
+      rewrite:
+        uri: "/"
 {{- end }}
       route:
       - destination:
