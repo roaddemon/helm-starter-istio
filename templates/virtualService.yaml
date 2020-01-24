@@ -10,8 +10,8 @@ metadata:
 spec:
 {{- if .Values.ingressGateway.enabled }}
   gateways:
-    - {{ .Values.ingressGateway.name | quote }}
-    - mesh
+  - public-gateway.istio-system.svc.cluster.local
+  - mesh
 {{- end }}    
   hosts:
 {{- if .Values.ingressGateway.enabled }}
