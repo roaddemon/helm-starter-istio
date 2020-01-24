@@ -11,6 +11,7 @@ spec:
 {{- if .Values.ingressGateway.enabled }}
   gateways:
     - {{ .Values.ingressGateway.name | quote }}
+    - mesh
 {{- end }}    
   hosts:
 {{- if .Values.ingressGateway.enabled }}
