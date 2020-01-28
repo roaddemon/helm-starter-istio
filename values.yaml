@@ -30,6 +30,9 @@ ports:
     port: 8080
     targetPort: 8080
 
+
+virtualService:
+  enabled: false
 # When enabled, configure the Istio ingress gateway to route outside traffic for the provided
 # host name to this service on the ports and protocols defined in the 'ports' section 
 # above. 
