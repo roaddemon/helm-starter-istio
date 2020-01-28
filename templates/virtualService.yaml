@@ -1,4 +1,4 @@
-{{- if .Values.ingressGateway.enabled }}
+{{- if .Values.virtualService.enabled }}
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
