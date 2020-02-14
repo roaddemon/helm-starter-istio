@@ -6,6 +6,7 @@ metadata:
     app.kubernetes.io/name: {{ .Values.service | quote }}
     app.kubernetes.io/part-of: {{ .Values.system | quote }}
     app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+    app: {{ .Values.service | quote }}    
   namespace: {{ .Release.Namespace | quote }}
 spec:
   replicas: {{ .Values.replicaCount }}
